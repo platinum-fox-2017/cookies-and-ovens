@@ -1,10 +1,8 @@
-const Chocolate = require('./chocolate.js');
-const Peanut = require('./peanut.js');
-const Cheese = require('./cheese.js');
+const Cookies = require('./cookies.js');
 
-let kueCokelat = new Chocolate('Kue cokelat');
+let kueCokelat = new Cookies('Kue cokelat', 20);
 kueCokelat.bake();
-let kueKacang = new Peanut('Kue kacang');
+let kueKacang = new Cookies('Kue kacang', 30);
 kueKacang.bake();
-let kueKeju = new Cheese('Kue keju');
+let kueKeju = new Cookies('Kue keju', 35);
 kueKeju.bake();

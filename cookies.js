@@ -1,9 +1,9 @@
 const Oven = require('./oven.js');
 
 class Cookies{
-    constructor(name){
+    constructor(name, cookingTime){
         this._name = name;
-        this._cookingTime = 0;
+        this._cookingTime = cookingTime;
     }
 
     bake(){
