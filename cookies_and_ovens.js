@@ -7,21 +7,31 @@
 // - Which classes will inherit from others, if any?kue coklat,kacang,keju
 //
 //
-// Your code here
-// Sebagai tukang masak, saya ingin membuat kue yang memiliki berbagai jenis (kue kacang, coklat dan kue keju.)
-// Waktu untuk memanggang setiap kue sebagai berikut:
-//     Kue coklat: 20 menit
-//     Kue kacang: 30 menit
-//     Kue keju: 35 menit
-// Sebagai tukang masak, saya bisa mengatur berapa lama kue dipanggang di dalam oven.
-// Apa saja class yang perlu dibuat? class kue, kue coklat, kue kacang, kue keju
-// Apa saja properti yang dipunyai setiap class? nama,waktu panggang
-// Class mana yang merupakan inheritance, jika ada?kue coklat,kacang,keju
+
 
 class Kue {
 	constructor(name){
 		this.name = name
+		this.bakeTime = 5
 	}
+	bake(){
+		for(let i =0;i<60;i+=5){
+			if(i < this.bakeTime-5){
+				console.log(`${this.name}. pada menit ke ${i} : mentah`)
+			}
+			else if(i === this.bakeTime-5){
+				console.log(`${this.name}, pada menit ke ${i}: hampir matang`)
+			}
+			else if(i === this.bakeTime){
+				console.log( `${this.name}, pada menit ke ${i}: matang`)
+			}
+			else if(i > this.bakeTime){
+				console.log( `${this.name}, pada menit ke ${i}: hangus`)
+			}
+
+		}
+	}
+
 }
 
 class Kue_coklat extends Kue{
@@ -47,7 +57,7 @@ class Kue_keju extends Kue{
 }
 
 let coklat = new Kue_coklat()
-console.log(coklat)
+coklat.bake()
 let kacang = new Kue_kacang()
 console.log(kacang)
 let keju = new Kue_coklat()
