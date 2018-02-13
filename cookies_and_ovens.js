@@ -1,13 +1,13 @@
 // Answer These Questions:
 //
 // - What are essential classes?
-// Cookie , Oven 
+//   Kue , Oven 
 // - What attributes will each class have?
+//   Ove: kue , lama_panggang | Kue: name, waktu_matang, status
 // - What interface will each class provide?
 // - How will the classes interact with each other?
 // - Which classes will inherit from others, if any?
-//
-//
+//   Gak ada kelas yang inheritance
 // Your code here
 /*
 Ketentuan 
