@@ -1,10 +1,50 @@
-// Answer These Questions:
-//
-// - What are essential classes?
-// - What attributes will each class have?
-// - What interface will each class provide?
-// - How will the classes interact with each other?
-// - Which classes will inherit from others, if any?
-//
-//
-// Your code here
+"use strict"
+
+class Cookies {
+  constructor(name,time) {
+    this.name = name;
+    this._time = 0;
+    this.cookedTime = time;
+    this._cooked = false;
+  }
+
+  get timed(){
+    return this._time;
+  }
+
+  get cookedStatus(){
+    return this._cooked;
+  }
+
+  cookingTime(){
+    this._time += 5;
+    if(this._time<(this.cookedTime-5)){
+      console.log(`${this.name}, menit ke-${this._time}: mentah`);
+    } else if(this._time===(this.cookedTime-5)){
+      console.log(`${this.name}, menit ke-${this._time}: hampir matang`);
+    } else if(this._time===this.cookedTime){
+      console.log(`${this.name}, menit ke-${this._time}: matang`);
+    } else {
+      console.log(`${this.name}, menit ke-${this._time}: hangus`);
+      this._cooked = true;
+    }
+  }
+
+}
+
+let kueCoklat = new Cookies('Kue Coklat',20);
+do {
+  kueCoklat.cookingTime();
+} while (kueCoklat.cookedStatus !== true);
+
+console.log('--------------------------');
+let kueKacang = new Cookies('Kue Kacang',30);
+do {
+  kueKacang.cookingTime();
+} while (kueKacang.cookedStatus !== true);
+
+console.log('--------------------------');
+let kueKeju = new Cookies('Kue Keju',35);
+do {
+  kueKeju.cookingTime();
+} while (kueKeju.cookedStatus !== true);
