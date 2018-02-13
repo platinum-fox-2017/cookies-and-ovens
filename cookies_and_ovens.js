@@ -46,16 +46,20 @@ class Cooking {
     }
   }
 
-  static baking(name, time) {
+  static baking(kue, time) {
     for(let i=0; i<=time; i+=5) {
-      if(name.cooked-5 == i) {
-        console.log(`${name.name}, menit ke ${i} : hampir matang`);
-      } else if(name.cooked > i) {
-        console.log(`${name.name}, menit ke ${i} : mentah`);
-      } else if(name.cooked == i) {
-        console.log(`${name.name}, menit ke ${i} : matang`);
-      } else if(name.cooked < i) {
-        console.log(`${name.name}, menit ke ${i} : hangus`);
+      if(kue.cooked-5 == i) {
+        kue.status = 'hampir matang'
+        console.log(`${kue.name}, menit ke ${i} : ${kue.status}`);
+      } else if(kue.cooked == i) {
+        kue.status = 'matang'
+        console.log(`${kue.name}, menit ke ${i} : ${kue.status}`);
+      } else if(kue.cooked > i) {
+        kue.status = 'mentah'
+        console.log(`${kue.name}, menit ke ${i} : ${kue.status}`);
+      } else if(kue.cooked < i) {
+        kue.status = 'hangus'
+        console.log(`${kue.name}, menit ke ${i} : ${kue.status}`);
       }
     }
   }
@@ -66,5 +70,5 @@ let kueKacang = Cooking.list('kue kacang')
 let kueKeju = Cooking.list('kue keju')
 
 Cooking.baking(kueCoklat, 20)
-Cooking.baking(kueKacang, 30)
+Cooking.baking(kueKacang, 40)
 Cooking.baking(kueKeju, 35)
