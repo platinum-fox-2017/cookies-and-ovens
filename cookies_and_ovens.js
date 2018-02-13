@@ -6,9 +6,9 @@ class Cake {
 		this._status = 'mentah';
 	}
 
-	cook() {
-		this._time += 5;
-		if (this._time_cooked - 5 == this._time) this._status = 'hampir matang';
+	cook(time) {
+		this._time += time;
+		if (this._time_cooked - 5 <= this._time && this._time < this._time_cooked) this._status = 'hampir matang';
 		else if (this._time_cooked == this._time) this._status = 'matang';
 		else if (this._time_cooked < this._time) this._status = 'hangus';
 
@@ -37,10 +37,10 @@ class Cheese extends Cake {
 let kue_coklat = new Chocolate('Kue coklat', 20);
 let kue_kacang = new Chocolate('Kue kacang', 30);
 let kue_keju = new Chocolate('Kue keju', 35);
-let time_cooked = 25;
+let time_cooked = 3;
 
-for (var i = 0; i < time_cooked; i+=5) {
-	kue_coklat.cook();
-	kue_kacang.cook();
-	kue_keju.cook();
+for (var i = 0; i < 10; i++) {
+	kue_coklat.cook(time_cooked);
+	kue_kacang.cook(time_cooked);
+	kue_keju.cook(time_cooked);
 }
