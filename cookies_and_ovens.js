@@ -40,27 +40,9 @@ class Cake {
     }
 }
 
-class ChocolateCake extends Cake {
-    constructor(name,bakedTime) {
-        super(name,bakedTime);
-    }
-}
-
-class CheeseCake extends Cake {
-    constructor(name,bakedTime) {
-        super(name,bakedTime);
-    }
-}
-
-class PeanuteCake extends Cake {
-    constructor(name,bakedTime) {
-        super(name,bakedTime);
-    }
-}
-
-let choco   = new ChocolateCake('kue coklat', 20);
-let peanute = new PeanuteCake('kue kacang', 30);
-let cheese  = new CheeseCake('kue keju', 35);
+let choco   = new Cake('kue coklat', 20);
+let peanute = new Cake('kue kacang', 30);
+let cheese  = new Cake('kue keju', 35);
 
 for(let i = 0; i < 8; i++) {
     choco.cookCake();
