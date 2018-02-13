@@ -4,8 +4,8 @@ class Cookies {
   constructor(name,time) {
     this.name = name;
     this._time = 0;
-    this.cookedTime = time;
-    this._cooked = false;
+    this.cookedTime = time; // waktu saat kuenya matang
+    this._cooked = false; // belum matang
   }
 
   get timed(){
