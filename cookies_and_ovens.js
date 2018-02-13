@@ -8,3 +8,42 @@
 //
 //
 // Your code here
+
+class Cookie {
+  constructor()  {
+    this.status = 'mentah';
+    this.ingredients = [];
+  }
+  bake(){
+    this.status = "selesai dimasak";
+  }
+}
+
+class PeanutButter extends Cookie {
+  constructor(){
+    super();
+    this.name = 'peanut butter';
+    this.peanut_conut = 100;  
+  }
+}
+class ChocholateChip extends Cookie {
+  constructor(){
+    super();
+    this.name = 'chocolate chip';
+    this.choc_chip_count = 200;  
+  }
+}
+class OtherCookie extends Cookie {
+  constructor(name){
+    super();
+    this.name = name;
+    this.other_count = 150;  
+  }
+}
+
+
+module.exports = {
+   PeanutButter: PeanutButter,
+   ChocholateChip: ChocholateChip,
+   OtherCookie: OtherCookie
+}
