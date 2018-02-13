@@ -8,3 +8,34 @@
 //
 //
 // Your code here
+
+class Cookies{
+    constructor(name, cookingTime){
+        this._name = name;
+        this._cookingTime = cookingTime;
+    }
+}
+
+class Chocolate extends Cookies{
+    constructor(name, cookingTime){
+        super(name, cookingTime);
+    }
+}
+
+class Peanut extends Cookies{
+    constructor(name, cookingTime){
+        super(name, cookingTime);
+    }
+}
+
+class Cheese extends Cookies{
+    constructor(name, cookingTime){
+        super(name, cookingTime);
+    }
+}
+
+class Oven{
+    constructor(cookingTime){
+        this._cookingTime = cookingTime;
+    }
+}
