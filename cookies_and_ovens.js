@@ -32,6 +32,8 @@ class Cookies {
 
 }
 
+// nama kue dan waktu matangnya dimasukkan sebagai parameter class
+
 let kueCoklat = new Cookies('Kue Coklat',20);
 do {
   kueCoklat.cookingTime();
