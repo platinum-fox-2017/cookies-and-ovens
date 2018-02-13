@@ -4,26 +4,21 @@
 //  Class kue, class kacang, class coklat, class keju
 
 // - What attributes will each class have?
-//  Class Cookie => cookie_name, cookie_time
-//  Others => nerusin
+//  Class Kue => name, cookie_time, condition, method cook, method check_cook
+//  Others => time (cooking time)
 
 // - What interface will each class provide?
+//  Class Kue =>
+//  Others =>
 
 // - How will the classes interact with each other?
+//
 
 // - Which classes will inherit from others, if any?
 //  coklat, keju, kacang from kue
 //
 // Your code here
-// Jenis Kue: Kue kacang, coklat, keju
-// kacang => 30 menit
-// coklat => 20 menit
-// keju => 35 menit
-// Bisa mengatur berapa lama
 
-//Tingkat kematangan -> hampir matang mentah selesai hangus per 5/10 menit
-// Kue cokelat, menit ke 5 mentah
-// Kue coklat, menit ke 10 mentah
 
 class Kue {
     constructor(name,cooking_time) {
@@ -31,20 +26,8 @@ class Kue {
         this._cooking_time = cooking_time;
         this._condition = 'mentah'
     }
-    get name(){
-        return this.name;
-    }
 
     cook(time){
-        let i = 5;
-        while(i < time){
-            this.check_cook(i);
-            i += 5;
-        }
-        this.check_cook(time);
-    }
-
-    check_cook(time){
         if(time<this._cooking_time-5){
             this._condition = 'mentah';
         }
@@ -61,36 +44,39 @@ class Kue {
             this._condition = 'gosong';
         }
 
-        console.log(`Kue ${this._name}, menit ke ${time} ${this._condition}`);
+        console.log(`${this._name}, menit ke ${time} ${this._condition}`);
     }
 }
 
 class Coklat extends Kue {
     constructor(time) {
-        super('coklat',20);
+        super('Kue coklat',20);
     }
 }
 
 class Keju extends Kue {
     constructor(time) {
-        super('keju',35)
+        super('Kue keju',35)
     }
 }
 
 class Kacang extends Kue {
     constructor(time) {
-        super('kacang',30)
+        super('Kue kacang',30)
     }
 }
 
-console.log("\nMasak Kue Coklat:");
+function cook_kue(time,arr){
+    for(let i = 5; i <= time+5; i+=5){
+        for(let j = 0; j < arr.length; j++){
+            arr[j].cook(i);
+        }
+        console.log("") ;
+    }
+}
+
 coklat = new Coklat();
-coklat.cook(28);
-
-console.log("\nMasak Kue Keju:");
 keju = new Keju();
-keju.cook(37);
-
-console.log("\nMasak Kue Kacang:");
 kacang = new Kacang();
-kacang.cook(27);
+let arrayKue = [coklat,kacang,keju];
+cook_kue(33,arrayKue);
