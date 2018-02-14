@@ -17,58 +17,67 @@ class Kue {
 class KueCokelat extends Kue{
   constructor(name) {
     super(name)
-    this.cooked = 20
+    this.timeCooked = 20
   }
 }
 
 class KueKacang extends Kue{
   constructor(name) {
     super(name)
-    this.cooked = 30
+    this.timeCooked = 30
   }
 }
 
 class KueKeju extends Kue{
   constructor(name) {
     super(name)
-    this.cooked = 35
+    this.timeCooked = 35
   }
 }
 
 class Cooking {
-  static list(name) {
-    if(name == 'kue cokelat') {
-      return new KueCokelat(name)
-    } else if(name == 'kue kacang') {
-      return new KueKacang(name)
-    } else if(name == 'kue keju') {
-      return new KueKeju(name)
+  constructor() {
+    this.list_cookies = []
+  }
+
+  addCookie(cookieType) {
+    if(cookieType == 'kue cokelat') {
+      this.list_cookies.push(new KueCokelat(cookieType))
+    } else if(cookieType == 'kue kacang') {
+      this.list_cookies.push(new KueKacang(cookieType))
+    } else if(cookieType == 'kue keju') {
+      this.list_cookies.push(new KueKeju(cookieType))
     }
   }
 
-  static baking(kue, time) {
-    for(let i=0; i<=time; i+=5) {
-      if(kue.cooked-5 == i) {
-        kue.status = 'hampir matang'
-        console.log(`${kue.name}, menit ke ${i} : ${kue.status}`);
-      } else if(kue.cooked == i) {
-        kue.status = 'matang'
-        console.log(`${kue.name}, menit ke ${i} : ${kue.status}`);
-      } else if(kue.cooked > i) {
-        kue.status = 'mentah'
-        console.log(`${kue.name}, menit ke ${i} : ${kue.status}`);
-      } else if(kue.cooked < i) {
-        kue.status = 'hangus'
-        console.log(`${kue.name}, menit ke ${i} : ${kue.status}`);
+  list() {
+    console.log(this.list_cookies)
+  }
+
+  baking(time) {
+    for(let j=0; j<this.list_cookies.length; j++) {
+      for(let i=0; i<=time; i+=5) {
+        if(this.list_cookies[j].timeCooked-5 == i) {
+          this.list_cookies[j].status = 'hampir matang'
+          console.log(`${this.list_cookies[j].name}, menit ke ${i} : ${this.list_cookies[j].status}`);
+        } else if(this.list_cookies[j].timeCooked == i) {
+          this.list_cookies[j].status = 'matang'
+          console.log(`${this.list_cookies[j].name}, menit ke ${i} : ${this.list_cookies[j].status}`);
+        } else if(this.list_cookies[j].timeCooked > i) {
+          this.list_cookies[j].status = 'mentah'
+          console.log(`${this.list_cookies[j].name}, menit ke ${i} : ${this.list_cookies[j].status}`);
+        } else if(this.list_cookies[j].timeCooked < i) {
+          this.list_cookies[j].status = 'hangus'
+          console.log(`${this.list_cookies[j].name}, menit ke ${i} : ${this.list_cookies[j].status}`);
+        }
       }
     }
   }
 }
 
-let kueCoklat = Cooking.list('kue cokelat')
-let kueKacang = Cooking.list('kue kacang')
-let kueKeju = Cooking.list('kue keju')
-
-Cooking.baking(kueCoklat, 20)
-Cooking.baking(kueKacang, 40)
-Cooking.baking(kueKeju, 35)
+let cooking = new Cooking()
+cooking.addCookie('kue cokelat')
+cooking.addCookie('kue kacang')
+cooking.addCookie('kue keju')
+cooking.list()
+cooking.baking(20)
